@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allure Ocean Views — Brochure</title>
+<meta name="description" content="Allure Ocean Views — private island residences in the Republic of Maldives. Interactive brochure. A Make It Visually case study.">
+<link rel="icon" href="img/mark-gold.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* Allure Ocean Views — brochure V2, paged like the Allure landing page (Website V5).
+   "NU" → calc(var(--u)*N): one unit of a 1600×900 page. */
+
+@font-face{font-family:Marcellus;src:url(fonts/marcellus-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Jost;src:url(fonts/jost-latin-300-normal.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:Jost;src:url(fonts/jost-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Jost;src:url(fonts/jost-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Cormorant;src:url(fonts/cormorant-garamond-latin-300-italic.woff2) format("woff2");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:Cormorant;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Syne;src:url(fonts/syne-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Syne;src:url(fonts/syne-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:Dinamit;src:url(fonts/Dinamit-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Dinamit;src:url(fonts/Dinamit-SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
+
+:root{
+  --abyss:#013A40;--teal:#014040;--sage:#5A7367;--gold:#BFBA9F;--gold-d:#A6A28D;--sand:#efe8d8;--paper:#f6f1e6;--ink:#013A40;
+  --miv-bg:#1c1c1c;--miv-gold:#ffb951;
+  --serif:Marcellus,Georgia,serif;--accent:Cormorant,Georgia,serif;--sans:Jost,system-ui,sans-serif;
+  --u:1px;--W:1600px;--H:900px;--ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#00262a;color:var(--sand);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:none}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+/* ---------- pages ---------- */
+.deck{position:fixed;inset:0;overflow:hidden;background:#00262a}
+.pg{position:absolute;left:50%;top:50%;width:var(--W);height:var(--H);margin-left:calc(var(--W)/-2);margin-top:calc(var(--H)/-2);overflow:hidden;
+  background:var(--abyss);color:var(--sand);opacity:0;visibility:hidden;transition:opacity .9s var(--ease),visibility 0s linear .9s}
+.pg.on{opacity:1;visibility:visible;transition:opacity .9s var(--ease),visibility 0s}
+.pg.cream{background:var(--paper);color:var(--ink)}
+.pg.miv{background:var(--miv-bg);color:#fff}
+.pg.black{background:#111}
+
+/* ---------- type (as on the site) ---------- */
+.eyebrow{font:500 max(9px,calc(var(--u)*11))/1.2 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin:0}
+.cream .eyebrow{color:var(--sage)}
+.display{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:.03em;text-transform:uppercase;margin:0}
+.display em{font-family:var(--accent);font-style:italic;font-weight:300;text-transform:none;letter-spacing:0;color:var(--gold);font-size:1.16em;line-height:.8}
+.cream .display em{color:var(--sage)}
+.d1{font-size:calc(var(--u)*96)}.d2{font-size:calc(var(--u)*64)}.d3{font-size:calc(var(--u)*46)}.d4{font-size:calc(var(--u)*34)}
+.lede{font:400 max(12px,calc(var(--u)*19))/1.6 var(--serif);margin:0;color:rgba(239,232,216,.85)}
+.cream .lede{color:rgba(1,58,64,.85)}
+.body{font:300 max(11px,calc(var(--u)*15))/1.65 var(--sans);margin:0;opacity:.85}
+.cap{font:500 max(8px,calc(var(--u)*10))/1.3 var(--sans);letter-spacing:.28em;text-transform:uppercase}
+.cap b{font-weight:500;opacity:.55;margin-right:calc(var(--u)*12)}
+.lnk{display:inline-block;font:500 max(8px,calc(var(--u)*10))/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:calc(var(--u)*6)}
+.center{text-align:center}
+
+/* ---------- page chrome, drawn on every page like the site ---------- */
+.emb{position:absolute;left:calc(var(--u)*30);top:calc(var(--u)*26);width:calc(var(--u)*104);height:calc(var(--u)*104);z-index:20;display:block}
+.emb svg{position:absolute;inset:0;width:100%;height:100%;fill:currentColor;color:var(--gold);font:500 17px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.emb img{position:absolute;left:27%;top:27%;width:46%;height:46%}
+.cream .emb svg{color:var(--ink)}
+.rul{position:absolute;left:calc(var(--u)*76);top:calc(var(--u)*170);bottom:calc(var(--u)*110);width:1px;z-index:20;background:currentColor;opacity:.28}
+.rul-n{position:absolute;left:calc(var(--u)*62);z-index:20;width:calc(var(--u)*30);text-align:center;font:500 max(8px,calc(var(--u)*10))/1 var(--sans);letter-spacing:.08em;background:inherit}
+.rul-n span{display:inline-block;padding:calc(var(--u)*4) 0;background:var(--abyss)}
+.cream .rul-n span{background:var(--paper)}
+.photo .rul-n span{background:transparent}
+.rul-s{position:absolute;left:calc(var(--u)*66);bottom:calc(var(--u)*58);z-index:20;font:italic 300 max(10px,calc(var(--u)*14))/1 var(--accent);transform:rotate(-90deg);transform-origin:left top;opacity:.7}
+.pe{position:absolute;right:calc(var(--u)*44);top:calc(var(--u)*30);z-index:20;display:flex;align-items:center;gap:calc(var(--u)*20);padding:calc(var(--u)*14) calc(var(--u)*16) calc(var(--u)*14) calc(var(--u)*20);text-decoration:none;
+  background:var(--gold);color:var(--abyss);font:400 max(10px,calc(var(--u)*15))/1.08 var(--serif);letter-spacing:.06em;text-transform:uppercase;box-shadow:0 calc(var(--u)*6) calc(var(--u)*20) rgba(0,0,0,.12)}
+.cream .pe{background:var(--abyss);color:var(--paper)}
+.pe i{width:calc(var(--u)*30);height:calc(var(--u)*30);border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-style:normal;font-size:calc(var(--u)*15)}
+.htwm{position:absolute;left:0;top:50%;z-index:20;transform:translateY(-50%);width:calc(var(--u)*26);height:calc(var(--u)*180);background:#111;color:var(--miv-gold);
+  display:flex;align-items:center;justify-content:center;text-decoration:none}
+.htwm span{transform:rotate(-90deg);white-space:nowrap;font:600 max(7px,calc(var(--u)*8.5))/1 Syne,var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.miv .emb,.miv .rul,.miv .rul-n,.miv .rul-s,.miv .pe,.miv .htwm,.nochrome .emb,.nochrome .rul,.nochrome .rul-n,.nochrome .rul-s,.nochrome .htwm{display:none}
+
+/* ---------- media ---------- */
+.ph{position:absolute;overflow:hidden;background:#0d4a50}
+.cream .ph{background:#e3dccb}
+.ph.full{inset:0}
+.ph img,.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph img{transform:scale(1.06);opacity:0;transition:transform 7s cubic-bezier(.2,.6,.3,1),opacity .8s}
+.ph img.ld{opacity:1}
+.pg.on .ph img{transform:scale(1)}
+.ph video{opacity:0;transition:opacity 1s}
+.ph video.playing{opacity:1}
+.arch{border-radius:calc(var(--u)*999) calc(var(--u)*999) 0 0}
+.zoomable{cursor:zoom-in}
+.veil{position:absolute;inset:0;pointer-events:none;z-index:1}
+.v-club{background:linear-gradient(90deg,rgba(1,30,33,.55) 0%,rgba(1,30,33,.15) 45%,rgba(1,30,33,.45) 100%),linear-gradient(0deg,rgba(1,30,33,.75) 0%,rgba(1,30,33,0) 50%)}
+.v-top{background:linear-gradient(180deg,rgba(1,30,33,.55) 0%,rgba(1,30,33,0) 30%)}
+.v-c{background:radial-gradient(ellipse at 50% 45%,rgba(1,40,44,.35) 0%,rgba(1,40,44,.1) 55%,rgba(1,40,44,.4) 100%)}
+.v-b{background:linear-gradient(0deg,rgba(1,30,33,.8) 0%,rgba(1,30,33,0) 55%)}
+.t{position:absolute;z-index:5}
+
+/* ---------- 01 hero ---------- */
+.hero .lock{position:absolute;left:50%;top:calc(var(--u)*150);transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center}
+.hero .lock .mk{width:calc(var(--u)*96);height:calc(var(--u)*96);margin-bottom:calc(var(--u)*22)}
+.hero .lock .wa{width:calc(var(--u)*420);height:auto}
+.hero .lock .wo{width:calc(var(--u)*250);height:auto;margin-top:calc(var(--u)*16)}
+.hero .sub{position:absolute;left:0;right:0;bottom:calc(var(--u)*64);z-index:5;text-align:center;color:var(--paper)}
+
+/* ---------- 02 the sun ---------- */
+.sun svg.sv{position:absolute;inset:0;width:100%;height:100%;z-index:3}
+.sun .sv text{font:400 70px/1 var(--serif);letter-spacing:.14em;fill:#d7cfbb;text-transform:uppercase}
+.sun .sun-in{position:absolute;left:0;right:0;top:calc(var(--u)*640);z-index:5;text-align:center;color:var(--ink)}
+.sun .sun-in .row{display:flex;justify-content:center;align-items:center;gap:calc(var(--u)*26);opacity:.55}
+.sun .sun-in img{width:calc(var(--u)*34);height:calc(var(--u)*34)}
+
+/* ---------- three ways ---------- */
+.palm{position:absolute;z-index:2;pointer-events:none}
+.palm img{position:absolute;width:100%;height:auto}
+.way{position:absolute;z-index:5;text-align:center;text-decoration:none;width:calc(var(--u)*330)}
+.way .ph{position:relative;width:calc(var(--u)*330);height:calc(var(--u)*430)}
+.way .n{display:block;margin:calc(var(--u)*22) 0 calc(var(--u)*8);font:500 max(9px,calc(var(--u)*11))/1 var(--sans);letter-spacing:.2em;color:var(--sage)}
+.way h3{margin:0;font:400 calc(var(--u)*34)/1 var(--serif);letter-spacing:.06em;text-transform:uppercase}
+.way p{margin:calc(var(--u)*12) auto calc(var(--u)*16);max-width:calc(var(--u)*270);font:300 max(11px,calc(var(--u)*14))/1.6 var(--sans);opacity:.8}
+
+/* ---------- contents (the site's menu) ---------- */
+.menu{position:absolute;left:calc(var(--u)*760);top:calc(var(--u)*110);right:calc(var(--u)*120);z-index:5;list-style:none;margin:0;padding:0}
+.menu li{border-top:1px solid rgba(191,186,159,.22)}
+.menu li:last-child{border-bottom:1px solid rgba(191,186,159,.22)}
+.menu a{display:grid;grid-template-columns:calc(var(--u)*70) 1fr auto;align-items:baseline;padding:calc(var(--u)*18) 0;text-decoration:none}
+.menu .n{font:500 max(9px,calc(var(--u)*11))/1 var(--sans);letter-spacing:.2em;color:var(--gold)}
+.menu b{font:400 calc(var(--u)*38)/1 var(--serif);font-weight:400;letter-spacing:.06em;text-transform:uppercase;transition:color .3s}
+.menu small{grid-column:2;margin-top:calc(var(--u)*10);font:300 max(10px,calc(var(--u)*13))/1.4 var(--sans);opacity:.6;letter-spacing:.02em}
+.menu .p{font:500 max(9px,calc(var(--u)*11))/1 var(--sans);letter-spacing:.2em;opacity:.6}
+.menu a:hover b{color:var(--gold)}
+
+/* ---------- film window ---------- */
+.film .win{position:absolute;left:calc(var(--u)*390);top:calc(var(--u)*220);width:calc(var(--u)*820);height:calc(var(--u)*462);z-index:4}
+.film .w1,.film .w2,.film .w3{position:absolute;z-index:5;font:400 calc(var(--u)*86)/1 var(--serif);letter-spacing:.04em;text-transform:uppercase;color:var(--paper)}
+.film .w1{left:calc(var(--u)*390);top:calc(var(--u)*108)}
+.film .w2{right:calc(var(--u)*390);top:calc(var(--u)*700);text-align:right}
+.film .w3{left:calc(var(--u)*200);top:calc(var(--u)*420);font:300 italic calc(var(--u)*110)/1 var(--accent);text-transform:none;color:var(--gold)}
+.play{position:absolute;left:50%;top:50%;z-index:6;transform:translate(-50%,-50%);width:calc(var(--u)*120);height:calc(var(--u)*120);border-radius:50%;
+  display:grid;place-items:center;background:rgba(246,241,230,.16);border:1px solid rgba(246,241,230,.7);backdrop-filter:blur(6px);text-decoration:none;color:var(--paper)}
+.play i{width:0;height:0;border-left:calc(var(--u)*24) solid currentColor;border-top:calc(var(--u)*15) solid transparent;border-bottom:calc(var(--u)*15) solid transparent;margin-left:calc(var(--u)*6)}
+.play:hover{background:var(--gold);color:var(--abyss)}
+.play.print-only{display:none}
+
+/* ---------- paradise ---------- */
+.para .ttl{position:absolute;left:0;right:0;top:calc(var(--u)*120);z-index:5;text-align:center;color:var(--ink)}
+.para .ttl .l{display:block;font:400 calc(var(--u)*132)/1 var(--serif);letter-spacing:.03em;text-transform:uppercase}
+.para .ttl .scr{display:block;position:relative;height:calc(var(--u)*110);margin:calc(var(--u)*-28) 0 calc(var(--u)*-36);font:300 italic calc(var(--u)*150)/1 var(--accent);color:var(--sage);transform:rotate(-4deg)}
+.para .ttl .scr svg{position:absolute;left:calc(var(--u)*290);top:calc(var(--u)*30);width:calc(var(--u)*420);height:calc(var(--u)*130);fill:none;stroke:var(--sage);stroke-width:2.2;opacity:.8}
+.para .sky{position:absolute;left:0;right:0;bottom:0;height:calc(var(--u)*420);z-index:2;background:linear-gradient(180deg,rgba(246,241,230,0) 0%,#cfe0e8 45%,#7fb2c6 78%,#3c7f98 100%)}
+.para .cl{position:absolute;z-index:3;opacity:.95}
+
+/* ---------- aerial tags ---------- */
+.tag{position:absolute;left:var(--x);top:var(--y);z-index:6;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;text-decoration:none}
+.tag span{background:var(--abyss);color:var(--paper);padding:calc(var(--u)*8) calc(var(--u)*12);font:500 max(8px,calc(var(--u)*10))/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;border:1px solid rgba(191,186,159,.35)}
+.tag i{width:1px;height:calc(var(--u)*26);background:var(--paper);opacity:.8}
+.tag b{width:calc(var(--u)*12);height:calc(var(--u)*12);border-radius:50%;background:var(--paper);box-shadow:0 0 0 calc(var(--u)*6) rgba(246,241,230,.3)}
+.tag:hover span{background:var(--gold);color:var(--abyss)}
+
+/* ---------- a place: the stage ---------- */
+.stage .head{position:absolute;left:calc(var(--u)*150);top:calc(var(--u)*44);z-index:6}
+.stage .head .d4{font-size:calc(var(--u)*22);margin-top:calc(var(--u)*8)}
+.places{position:absolute;right:calc(var(--u)*120);top:50%;transform:translateY(-50%);z-index:6;list-style:none;margin:0;padding:0}
+.places a{display:block;position:relative;padding:calc(var(--u)*5) 0 calc(var(--u)*5) calc(var(--u)*22);font:400 calc(var(--u)*30)/1.15 var(--serif);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:rgba(239,232,216,.38);transition:color .3s}
+.places a.act{color:var(--paper)}
+.places a.act::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:2px;background:var(--paper)}
+.places a:hover{color:var(--paper)}
+.stage .foot{position:absolute;left:calc(var(--u)*150);bottom:calc(var(--u)*84);width:calc(var(--u)*760);z-index:6;color:var(--paper)}
+.stage .foot .display{font-size:calc(var(--u)*62);margin:calc(var(--u)*14) 0 calc(var(--u)*18)}
+.stage .foot .body{max-width:calc(var(--u)*520);color:var(--sand)}
+.stage .num{position:absolute;right:calc(var(--u)*120);bottom:calc(var(--u)*84);z-index:6;font:400 calc(var(--u)*120)/1 var(--serif);color:rgba(246,241,230,.14)}
+
+/* ---------- a place: the gallery ---------- */
+.gal .head{position:absolute;left:calc(var(--u)*150);top:calc(var(--u)*150);width:calc(var(--u)*640);z-index:5}
+.gal .head .display{margin-top:calc(var(--u)*16)}
+.gal .side{position:absolute;left:calc(var(--u)*880);top:calc(var(--u)*182);width:calc(var(--u)*560);z-index:5}
+.gal .cards{position:absolute;left:calc(var(--u)*150);right:calc(var(--u)*120);top:calc(var(--u)*360);bottom:calc(var(--u)*70);display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*34);z-index:5}
+.gal .card{position:relative;display:flex;flex-direction:column}
+.gal .card .ph{position:relative;flex:1}
+.gal .meta{display:flex;justify-content:space-between;gap:calc(var(--u)*12);padding-top:calc(var(--u)*12);margin-top:calc(var(--u)*12);border-top:1px solid currentColor;border-top-color:rgba(191,186,159,.35)}
+.cream.gal .meta{border-top-color:rgba(1,58,64,.2)}
+
+/* ---------- reef ---------- */
+.reef .ttl{position:absolute;left:0;right:0;top:calc(var(--u)*300);z-index:5;text-align:center;color:var(--paper)}
+.reef .ttl .display{font-size:calc(var(--u)*92);text-shadow:0 calc(var(--u)*2) calc(var(--u)*30) rgba(0,0,0,.25)}
+.reef .ttl .display em{color:var(--paper)}
+.reef .lab{position:absolute;left:calc(var(--u)*150);bottom:calc(var(--u)*70);z-index:5;color:var(--paper)}
+.reef .txt{position:absolute;right:calc(var(--u)*120);bottom:calc(var(--u)*70);width:calc(var(--u)*420);z-index:5;color:var(--paper);text-align:right}
+
+/* ---------- residences ---------- */
+.res .head{position:absolute;left:calc(var(--u)*150);top:calc(var(--u)*120);width:calc(var(--u)*700);z-index:5}
+.res .side{position:absolute;right:calc(var(--u)*120);top:calc(var(--u)*170);width:calc(var(--u)*420);z-index:5;text-align:right}
+.res .cards{position:absolute;left:calc(var(--u)*150);right:calc(var(--u)*120);top:calc(var(--u)*330);bottom:calc(var(--u)*60);display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*30);z-index:5}
+.res .card{display:flex;flex-direction:column}
+.res .card .ph{position:relative;height:calc(var(--u)*350)}
+.res .meta{display:flex;justify-content:space-between;padding-top:calc(var(--u)*12);margin-top:calc(var(--u)*14);border-top:1px solid rgba(191,186,159,.3)}
+.res .card p{margin:calc(var(--u)*10) 0 0;font:300 max(10px,calc(var(--u)*12.5))/1.55 var(--sans);opacity:.75}
+
+/* ---------- life here ---------- */
+.life .ttl{position:absolute;left:0;right:0;top:calc(var(--u)*70);z-index:5;text-align:center}
+.life .ttl .l1{display:block;font:400 calc(var(--u)*150)/.95 var(--serif);letter-spacing:.03em;text-transform:uppercase;color:var(--ink)}
+.life .ttl .l2{display:block;font:300 italic calc(var(--u)*120)/.6 var(--accent);color:var(--sage);transform:rotate(-6deg);margin-top:calc(var(--u)*-6)}
+.mq{position:absolute;left:0;right:0;top:calc(var(--u)*395);z-index:5;overflow:hidden;white-space:nowrap;border-top:1px solid rgba(1,58,64,.18);border-bottom:1px solid rgba(1,58,64,.18);padding:calc(var(--u)*16) 0}
+.mq div{display:inline-flex;align-items:center;animation:mq 50s linear infinite}
+.mq span{display:inline-flex;align-items:center;gap:calc(var(--u)*34);margin-right:calc(var(--u)*34);font:400 calc(var(--u)*22)/1 var(--serif);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.mq span img{width:calc(var(--u)*18);height:calc(var(--u)*18);opacity:.5}
+@keyframes mq{to{transform:translateX(-50%)}}
+.life .rail{position:absolute;left:calc(var(--u)*150);right:0;top:calc(var(--u)*480);bottom:calc(var(--u)*50);display:flex;gap:calc(var(--u)*26);z-index:5}
+.life .rail figure{margin:0;display:flex;flex-direction:column;flex:none}
+.life .rail .ph{position:relative;flex:1}
+.life .rail figcaption{padding-top:calc(var(--u)*12)}
+
+/* ---------- signature ---------- */
+.sig .head{position:absolute;left:0;right:0;top:calc(var(--u)*56);z-index:5;text-align:center}
+.sig .head img{width:calc(var(--u)*70);height:calc(var(--u)*70);margin:0 auto calc(var(--u)*18)}
+.sig .head .lede{max-width:calc(var(--u)*560);margin:calc(var(--u)*14) auto 0}
+.sig figure{position:absolute;margin:0;z-index:5}
+.sig figure .ph{position:relative;width:100%}
+.sig figcaption{padding-top:calc(var(--u)*12)}
+
+/* ---------- enquire ---------- */
+.enq .ttl{position:absolute;left:0;right:0;top:calc(var(--u)*110);z-index:5;text-align:center;color:var(--paper)}
+.enq .ttl .l1{display:block;font:400 calc(var(--u)*88)/1 var(--serif);letter-spacing:.03em;text-transform:uppercase}
+.enq .ttl .l2{display:block;font:300 italic calc(var(--u)*104)/1 var(--accent);margin-top:calc(var(--u)*4)}
+.enq .call{position:absolute;left:0;right:0;top:calc(var(--u)*470);z-index:5;text-align:center;color:var(--paper)}
+.enq .call .lede{max-width:calc(var(--u)*520);margin:calc(var(--u)*14) auto 0;color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:calc(var(--u)*16);padding:calc(var(--u)*14) calc(var(--u)*16) calc(var(--u)*14) calc(var(--u)*22);background:var(--gold);color:var(--abyss);text-decoration:none;font:500 max(8px,calc(var(--u)*10))/1 var(--sans);letter-spacing:.24em;text-transform:uppercase}
+.btn i{width:calc(var(--u)*26);height:calc(var(--u)*26);border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-style:normal;font-size:calc(var(--u)*13);letter-spacing:0}
+.btn:hover{background:var(--paper)}
+.lnk2{font:500 max(8px,calc(var(--u)*10))/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:calc(var(--u)*6);margin-left:calc(var(--u)*30)}
+
+/* ---------- finale ---------- */
+.fin .halo{position:absolute;left:50%;top:50%;width:calc(var(--u)*1350);height:calc(var(--u)*1350);margin:calc(var(--u)*-675) 0 0 calc(var(--u)*-675);opacity:.05;z-index:1}
+.fin .lock{position:absolute;left:50%;top:50%;transform:translate(-50%,-56%);z-index:5;display:flex;flex-direction:column;align-items:center}
+.fin .lock .wa{width:calc(var(--u)*640);height:auto}.fin .lock .wo{width:calc(var(--u)*380);height:auto;margin-top:calc(var(--u)*24)}
+.fin .co{position:absolute;left:0;right:0;top:calc(var(--u)*600);z-index:5;text-align:center;opacity:.6}
+.fin .tt{position:absolute;left:0;right:0;bottom:calc(var(--u)*80);z-index:5;text-align:center}
+
+/* ---------- MIV (credits identity) ---------- */
+.miv .mlogo{position:absolute;left:calc(var(--u)*120);top:calc(var(--u)*90);width:calc(var(--u)*170);height:auto;z-index:5}
+.miv .lbl{display:flex;align-items:center;gap:calc(var(--u)*12);font:600 max(9px,calc(var(--u)*11))/1 Syne;letter-spacing:.24em;text-transform:uppercase;color:#a0a0a0;margin:0 0 calc(var(--u)*22)}
+.miv .lbl::before{content:"";width:calc(var(--u)*8);height:calc(var(--u)*8);border-radius:50%;background:var(--miv-gold)}
+.miv h2{font:400 calc(var(--u)*80)/1.02 Dinamit,var(--sans);margin:0;letter-spacing:-.005em}
+.miv h2 em{font-style:normal;color:var(--miv-gold)}
+.miv p{font:500 max(11px,calc(var(--u)*16))/1.6 Syne,var(--sans);color:#c9c9c9;margin:calc(var(--u)*18) 0 0}
+.miv p strong{color:#fff;font-weight:600}
+.mbtn{display:inline-flex;align-items:center;gap:calc(var(--u)*12);padding:calc(var(--u)*16) calc(var(--u)*26);border-radius:999px;background:var(--miv-gold);color:#1c1c1c;text-decoration:none;font:600 max(10px,calc(var(--u)*13))/1 Syne;letter-spacing:.04em}
+.mbtn:hover{background:#fff}
+.mhow{display:inline-flex;align-items:center;gap:calc(var(--u)*10);font:600 max(10px,calc(var(--u)*12))/1 Syne;color:#fff;text-decoration:none;margin-left:calc(var(--u)*26)}
+.mhow::before{content:"";width:calc(var(--u)*7);height:calc(var(--u)*7);border-radius:50%;background:var(--miv-gold)}
+.dlv{position:absolute;left:calc(var(--u)*120);right:calc(var(--u)*120);top:calc(var(--u)*330);bottom:calc(var(--u)*110);display:grid;grid-template-columns:repeat(5,1fr);gap:calc(var(--u)*22)}
+.dlv a{display:flex;flex-direction:column;text-decoration:none;color:#fff}
+.dlv .ph{position:relative;height:calc(var(--u)*200);background:#262626}
+.dlv .ph img{opacity:1}
+.dlv .k{font:400 calc(var(--u)*58)/1 Dinamit;color:var(--miv-gold);margin-top:calc(var(--u)*22)}
+.dlv .k small{font:500 max(10px,calc(var(--u)*12))/1 Syne;color:#9a9a9a;margin-left:calc(var(--u)*8)}
+.dlv h4{margin:calc(var(--u)*14) 0 0;font:600 max(10px,calc(var(--u)*12))/1 Syne;letter-spacing:.2em;text-transform:uppercase}
+.dlv p{font-size:max(10px,calc(var(--u)*13));color:#9a9a9a;margin-top:calc(var(--u)*10)}
+.svc{list-style:none;margin:0;padding:0;columns:2;column-gap:calc(var(--u)*40)}
+.svc li{break-inside:avoid;display:flex;gap:calc(var(--u)*18);align-items:baseline;padding:calc(var(--u)*13) 0;border-top:1px solid #2f2f2f;font:400 calc(var(--u)*24)/1.1 Dinamit}
+.svc li span{font:600 max(9px,calc(var(--u)*11))/1 Syne;color:var(--miv-gold);width:calc(var(--u)*24)}
+.mfoot{position:absolute;left:calc(var(--u)*120);right:calc(var(--u)*120);bottom:calc(var(--u)*46);display:flex;justify-content:space-between;border-top:1px solid #2f2f2f;padding-top:calc(var(--u)*18);font:500 max(8px,calc(var(--u)*10))/1 Syne;letter-spacing:.22em;text-transform:uppercase;color:#8a8a8a}
+.mfoot b{color:#fff;font-weight:600}
+.reveal .ph{background:#111}
+.reveal .ph img{opacity:1;transform:none}
+.reveal .ph video{opacity:1}
+.reveal .site{position:absolute;inset:0;z-index:6}
+
+/* ---------- chrome (online only) ---------- */
+.ctl{position:fixed;right:18px;bottom:16px;z-index:50;display:flex;align-items:center;gap:4px;height:40px;padding:0 6px;border-radius:999px;background:rgba(1,40,44,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(246,241,230,.14);color:var(--paper)}
+.ctl button{height:30px;min-width:30px;padding:0 10px;border-radius:999px;display:flex;align-items:center;gap:8px;font:500 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.ctl button:hover{background:rgba(246,241,230,.14)}
+.ctl .ctr{font:500 10px/1 var(--sans);letter-spacing:.2em;padding:0 8px;opacity:.85}
+.ctl svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5}
+.prog{position:fixed;left:0;right:0;bottom:0;height:2px;z-index:50;background:rgba(246,241,230,.08)}
+.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .6s var(--ease)}
+.hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;font:500 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--paper);padding:10px 16px;border-radius:999px;background:rgba(1,40,44,.55);backdrop-filter:blur(10px);transition:opacity 1s;pointer-events:none}
+.hint.off{opacity:0}
+.navz{position:fixed;top:120px;bottom:80px;width:9vw;z-index:40;opacity:0;transition:opacity .3s;display:flex;align-items:center;cursor:pointer}
+.navz:hover{opacity:1}
+.navz.prev{left:0;justify-content:flex-start;padding-left:40px}.navz.next{right:0;justify-content:flex-end;padding-right:22px}
+.navz span{width:50px;height:50px;border-radius:50%;background:rgba(1,40,44,.55);backdrop-filter:blur(10px);border:1px solid rgba(246,241,230,.25);display:grid;place-items:center;color:var(--paper)}
+.navz svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5}
+.ovl{position:fixed;inset:0;z-index:80;background:rgba(1,34,38,.97);color:var(--paper);overflow:auto;opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s linear .4s;padding:90px 6vw 60px}
+.ovl.on{opacity:1;visibility:visible;transition:opacity .4s}
+.ovl h2{font:400 40px/1 var(--serif);letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+.ovl .sub{font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px 18px}
+.grid a{text-decoration:none;color:var(--paper)}
+.grid .th{aspect-ratio:16/9;background:#0d4a50 center/cover no-repeat;outline:1px solid rgba(246,241,230,.1);transition:outline-color .3s,transform .4s var(--ease)}
+.grid a:hover .th{outline-color:var(--gold);transform:translateY(-3px)}
+.grid a.cur .th{outline:2px solid var(--gold)}
+.grid .lb{display:flex;gap:10px;margin-top:10px;font:400 13px/1.3 var(--sans)}
+.grid .lb b{font-weight:500;color:var(--gold);font-size:11px;letter-spacing:.12em;padding-top:2px}
+.x{position:fixed;right:22px;top:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(246,241,230,.3);display:grid;place-items:center;color:var(--paper);z-index:2}
+.x svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.5}
+.modal{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.94);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s linear .4s}
+.modal.on{opacity:1;visibility:visible;transition:opacity .4s}
+.modal video,.modal img{max-width:94vw;max-height:88vh;width:auto;height:auto}
+.modal video{width:min(94vw,156vh)}
+.modal .lb-cap{position:fixed;left:0;right:0;bottom:22px;text-align:center;color:#ddd;font:400 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- PRINT ---------- */
+@page{size:1600px 900px;margin:0}
+.print-only{display:none}
+.mode-print{background:#fff}
+.mode-print .deck{position:static;overflow:visible;background:none}
+.mode-print .pg{position:relative;left:auto;top:auto;margin:0;opacity:1;visibility:visible;transition:none;break-after:page;page-break-after:always}
+.mode-print .pg:last-child{break-after:auto}
+.mode-print .ph img{transform:none;opacity:1;transition:none}
+.mode-print .web-only,.mode-print video,.mode-print .ctl,.mode-print .prog,.mode-print .hint,.mode-print .navz,.mode-print .ovl,.mode-print .modal{display:none!important}
+.mode-print .print-only{display:block}
+.mode-print .play.print-only{display:grid}
+.mode-print .mq div{animation:none}
+.mode-print .pe,.mode-print .play{backdrop-filter:none}
+
+/* ---------- FLOW (phones, portrait) ---------- */
+.mode-flow .deck{position:static;overflow:visible}
+.mode-flow .pg{position:relative;left:auto;top:auto;margin:0;width:100%;height:auto;opacity:1;visibility:visible;transition:none;padding-bottom:28px}
+.mode-flow .pg .t,.mode-flow .pg .head,.mode-flow .pg .side,.mode-flow .pg .foot,.mode-flow .pg .ttl,.mode-flow .pg .call,.mode-flow .pg .lab,.mode-flow .pg .txt,.mode-flow .pg .sun-in,.mode-flow .pg .lock,.mode-flow .pg .co,.mode-flow .pg .tt,.mode-flow .pg .sub{position:relative!important;inset:auto!important;transform:none!important;width:auto!important;margin:0;padding:22px 22px 0}
+.mode-flow .pg .ph{position:relative!important;inset:auto!important;width:auto!important;height:auto!important;aspect-ratio:4/3;margin:12px 22px 0}
+.mode-flow .pg .ph.full{margin:0;aspect-ratio:4/5}
+.mode-flow .pg .ph img{opacity:1}
+.mode-flow .pg .ph.arch,.mode-flow .way .ph{aspect-ratio:3/4}
+.mode-flow .emb,.mode-flow .rul,.mode-flow .rul-n,.mode-flow .rul-s,.mode-flow .htwm,.mode-flow .veil,.mode-flow .palm,.mode-flow .cl,.mode-flow .sky,.mode-flow .halo,.mode-flow .num,.mode-flow svg.sv,.mode-flow .tag,.mode-flow .places,.mode-flow .film .w1,.mode-flow .film .w2,.mode-flow .film .w3,.mode-flow .navz,.mode-flow .hint,.mode-flow .prog{display:none!important}
+.mode-flow .pe{position:fixed;top:10px;right:10px;font-size:11px;padding:8px 8px 8px 12px;gap:10px}
+.mode-flow .pe i{width:22px;height:22px;font-size:11px}
+.mode-flow .ctl .ctr,.mode-flow .ctl [data-fs]{display:none}
+.mode-flow .way,.mode-flow .gal .cards,.mode-flow .res .cards,.mode-flow .life .rail,.mode-flow .dlv,.mode-flow .menu,.mode-flow .sig figure{position:relative!important;inset:auto!important;left:auto!important;top:auto!important;width:auto!important;display:block!important;padding:0 22px;margin:20px 0 0}
+.mode-flow .way .ph,.mode-flow .gal .card .ph,.mode-flow .res .card .ph,.mode-flow .life .rail .ph,.mode-flow .dlv .ph,.mode-flow .sig figure .ph{margin:0}
+.mode-flow .gal .card,.mode-flow .res .card,.mode-flow .life .rail figure,.mode-flow .dlv a{margin-bottom:22px;width:auto!important}
+.mode-flow .film .win{position:relative;left:auto;top:auto;width:auto;height:auto;margin:0 22px}
+.mode-flow .film .win .ph{position:relative!important;aspect-ratio:16/9;margin:0}
+.mode-flow .play{top:50%}
+.mode-flow .d1,.mode-flow .reef .ttl .display,.mode-flow .stage .foot .display{font-size:36px!important}
+.mode-flow .d2,.mode-flow .d3{font-size:30px!important}
+.mode-flow .para .ttl .l,.mode-flow .life .ttl .l1,.mode-flow .fin .lock .wa{font-size:46px}
+.mode-flow .para .ttl .scr,.mode-flow .life .ttl .l2{font-size:44px;height:auto;margin:0}
+.mode-flow .para .ttl .scr svg{display:none}
+.mode-flow .enq .ttl .l1{font-size:34px}.mode-flow .enq .ttl .l2{font-size:40px}
+.mode-flow .hero,.mode-flow .reveal{height:100svh}
+.mode-flow .hero .ph,.mode-flow .reveal .ph{position:absolute!important;inset:0!important;margin:0;aspect-ratio:auto}
+.mode-flow .hero .lock{position:absolute!important;left:0!important;right:0!important;top:22vh!important;align-items:center}
+.mode-flow .hero .lock .mk{width:70px;height:70px}.mode-flow .hero .lock .wa{width:240px}.mode-flow .hero .lock .wo{width:150px}
+.mode-flow .hero .sub{position:absolute!important;bottom:40px!important;left:0;right:0}
+.mode-flow .sun{display:none}
+.mode-flow .mq{position:relative;top:auto;margin:20px 0 0}
+.mode-flow .miv .mlogo{position:relative;left:auto;top:auto;margin:40px 22px 0;width:120px}
+.mode-flow .mfoot{position:relative;left:auto;right:auto;bottom:auto;margin:30px 22px 0;flex-wrap:wrap;gap:10px}
+.mode-flow .miv h2{font-size:34px}
+.mode-flow .svc{columns:1}
+.mode-flow .fin .lock .wa{width:260px}.mode-flow .fin .lock .wo{width:160px}
+.mode-flow .fin{padding-top:60px}
+
+@media (prefers-reduced-motion:reduce){.ph img{transition:none;transform:none}.mq div{animation:none}}
+
+.photo .emb svg{color:var(--paper)}
+.nochrome .pe{display:none}
+.stage .head{left:calc(var(--u)*170);top:calc(var(--u)*54)}
+.para .ttl .scr{margin:calc(var(--u)*-6) 0 calc(var(--u)*-14)}
+.enq .veil.v-c{background:radial-gradient(ellipse at 50% 55%,rgba(1,30,33,.55) 0%,rgba(1,30,33,.2) 55%,rgba(1,40,44,.35) 100%)}
+.mode-print .pe,.mode-print .tag b,.mode-print .play{box-shadow:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="er" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs></svg>
+<main class="deck" aria-label="Allure Ocean Views brochure">
+<!-- HERO -->
+<section class="pg hero photo" id="cover" data-title="Allure Ocean Views" data-sec="Allure Ocean Views" data-thumb="cover"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.0000))"><span>01</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/cover.jpg" alt="Allure Ocean Views — the island from the air">
+    <video class="web-only" data-vsrc="video/hero-teaser.mp4" muted loop playsinline preload="none"></video></div>
+  <div class="veil v-top"></div>
+  <div class="lock">
+    <img class="mk" src="img/mark-paper.svg" alt="">
+    <img class="wa" src="img/word-allure.webp" alt="Allure">
+    <img class="wo" src="img/word-ocean.webp" alt="Ocean Views">
+  </div>
+  <p class="sub cap">Private island residences &nbsp;·&nbsp; Republic of Maldives</p>
+</section>
+
+<!-- THREE WAYS: THE SUN -->
+<section class="pg sun photo" id="ways" data-title="Three ways to live here" data-sec="The Island" data-thumb="air-far"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.0323))"><span>02</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/air-far.jpg" alt="The island alone in open water" style="object-position:50% 40%"></div>
+  <svg class="sv" viewBox="0 0 1600 900" aria-hidden="true">
+    <defs><path id="sun-arc" d="M 170,1180 A 630,630 0 0 1 1430,1180"/></defs>
+    <image href="img/mark-paper.svg" x="-200" y="180" width="2000" height="2000" opacity=".9"/>
+    <circle cx="800" cy="1180" r="700" fill="#f6f1e6"/>
+    <text><textPath href="#sun-arc" startOffset="50%" text-anchor="middle">Three ways to live here</textPath></text>
+  </svg>
+  <div class="sun-in"><div class="row cap"><span>North Malé</span><img src="img/mark-ink.svg" alt=""><span>Atoll</span></div></div>
+</section>
+
+<!-- THREE WAYS: THE ARCHES -->
+<section class="pg cream" id="three" data-title="The Ring, the Shore, the Green" data-sec="The Island" data-thumb="way-ring"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-ink.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.0645))"><span>03</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="palm" style="left:calc(var(--u)*-60);top:calc(var(--u)*-40);width:calc(var(--u)*300);height:calc(var(--u)*560);transform:scaleX(-1)"><img src="img/palm-upper.webp" alt=""></div>
+  <div class="palm" style="right:calc(var(--u)*-40);bottom:calc(var(--u)*-200);width:calc(var(--u)*300);height:calc(var(--u)*560)"><img src="img/palm-lower.webp" alt=""></div>
+  <div class="t center" style="left:0;right:0;top:calc(var(--u)*60)"><p class="eyebrow">Three ways to live here</p></div>
+  <a class="way" href="#the-ring" style="left:calc(var(--u)*240);top:calc(var(--u)*130)"><div class="ph arch"><img data-src="img/way-ring.jpg" alt="Ocean homes on the ring"></div><span class="n">01</span><h3>The Ring</h3><p>Ocean homes over the lagoon, joined by timber walkways.</p><span class="lnk">Explore</span></a>
+  <a class="way" href="#the-villas" style="left:calc(var(--u)*635);top:calc(var(--u)*200)"><div class="ph arch"><img data-src="img/way-shore.jpg" alt="Beach villa on the sand"></div><span class="n">02</span><h3>The Shore</h3><p>Beach villas with private pools, opening straight onto sand.</p><span class="lnk">Explore</span></a>
+  <a class="way" href="#golf-course" style="left:calc(var(--u)*1030);top:calc(var(--u)*160)"><div class="ph arch"><img data-src="img/way-green.jpg" alt="The green at the island's heart"></div><span class="n">03</span><h3>The Green</h3><p>Homes around the golf course and the courts, at the island's heart.</p><span class="lnk">Explore</span></a>
+</section>
+
+<!-- CONTENTS: THE SITE'S MENU -->
+<section class="pg" id="contents" data-title="Contents" data-sec="Contents" data-thumb="cover"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.0968))"><span>04</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="t" style="left:calc(var(--u)*150);top:calc(var(--u)*170);width:calc(var(--u)*520)">
+    <p class="eyebrow">The concept</p>
+    <h2 class="display d2" style="margin-top:calc(var(--u)*22)">An island drawn as <em>one gesture</em></h2>
+    <p class="lede" style="margin-top:calc(var(--u)*30)">A ring of homes on the reef, villas along the shore, a green at its centre.</p>
+    <p class="body" style="margin-top:calc(var(--u)*14)">Nothing else for miles. Which is the point.</p>
+    <img src="img/mark-gold.svg" alt="" style="width:calc(var(--u)*64);height:calc(var(--u)*64);margin-top:calc(var(--u)*60);opacity:.85">
+  </div>
+  <ul class="menu">
+    <li><a href="#film"><span class="n">I</span><b>The Island</b><span class="p">05</span><small>The film · The island from the air · Eight places</small></a></li>
+    <li><a href="#residences"><span class="n">II</span><b>Residences</b><span class="p">25</span><small>Ocean homes · Beach villas · Garden villas · The reef</small></a></li>
+    <li><a href="#restaurant-bar"><span class="n">III</span><b>The Club</b><span class="p">12</span><small>Restaurant / Bar · Tennis · Golf</small></a></li>
+    <li><a href="#life"><span class="n">IV</span><b>Life Here</b><span class="p">26</span><small>Life here · The Allure signature</small></a></li>
+    <li><a href="#enquire"><span class="n">V</span><b>Enquire</b><span class="p">28</span><small>Private sales</small></a></li>
+    <li><a href="#behind"><span class="n">—</span><b>How this was made</b><span class="p">30</span><small>A Make It Visually case study</small></a></li>
+  </ul>
+</section>
+
+<!-- FILM WINDOW -->
+<section class="pg film" id="film" data-title="The film" data-sec="The Island" data-thumb="film"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.1290))"><span>05</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <span class="w1">One island</span>
+  <span class="w3">set in</span>
+  <span class="w2">motion</span>
+  <div class="win"><div class="ph full"><img data-src="img/film.jpg" alt="Opening frame of the Allure film"></div>
+    <a class="play web-only" href="#watch" data-film aria-label="Play the film with sound"><i></i></a>
+    <a class="play print-only" href="https://allure-ocean-views.vercel.app/#film" aria-label="Watch the film online"><i></i></a></div>
+  <div class="t center" style="left:0;right:0;bottom:calc(var(--u)*70)"><p class="cap web-only">Play &nbsp;·&nbsp; 60 seconds &nbsp;·&nbsp; with sound</p><a class="cap print-only" href="https://allure-ocean-views.vercel.app/#film" style="text-decoration:none">Watch online &nbsp;·&nbsp; 60 seconds &nbsp;·&nbsp; with sound →</a></div>
+</section>
+
+<!-- A PARADISE WAITING FOR YOU -->
+<section class="pg cream para" id="paradise" data-title="A paradise waiting for you" data-sec="The Island" data-thumb="aerial"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-ink.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.1613))"><span>06</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="palm" style="right:calc(var(--u)*-50);top:calc(var(--u)*-60);width:calc(var(--u)*330);height:calc(var(--u)*620)"><img src="img/palm-upper.webp" alt=""></div>
+  <div class="ttl">
+    <span class="l">A paradise</span>
+    <span class="scr">waiting<svg viewBox="0 0 400 120" aria-hidden="true"><path d="M392,18 C330,60 250,96 170,104 C100,111 40,96 22,66 C8,42 30,22 58,30 C84,38 78,70 52,72"/></svg></span>
+    <span class="l">for you</span>
+  </div>
+  <div class="sky"></div>
+  <div class="cl" style="left:calc(var(--u)*-120);bottom:calc(var(--u)*-40);width:calc(var(--u)*900)"><img src="img/cloud-1.webp" alt="" style="width:100%"></div>
+  <div class="cl" style="left:calc(var(--u)*620);bottom:calc(var(--u)*-80);width:calc(var(--u)*1100)"><img src="img/cloud-4.webp" alt="" style="width:100%"></div>
+  <div class="cl" style="left:calc(var(--u)*420);bottom:calc(var(--u)*10);width:calc(var(--u)*560);opacity:.8"><img src="img/cloud-3.webp" alt="" style="width:100%"></div>
+</section>
+
+<!-- AERIAL -->
+<section class="pg photo" id="aerial" data-title="The island from the air" data-sec="The Island" data-thumb="aerial"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.1935))"><span>07</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/aerial.jpg" class="zoomable" alt="Aerial view of the island with eight places marked"></div>
+  <div class="veil v-top"></div><div class="veil v-b" style="opacity:.7"></div>
+  <a class="tag" href="#port" style="--x:22%;--y:61.5%"><span>Port</span><i></i><b></b></a>
+  <a class="tag" href="#the-villas" style="--x:38%;--y:53%"><span>The Villas</span><i></i><b></b></a>
+  <a class="tag" href="#restaurant-bar" style="--x:47.5%;--y:46.5%"><span>Restaurant / Bar</span><i></i><b></b></a>
+  <a class="tag" href="#passages" style="--x:49.5%;--y:55%"><span>Passages</span><i></i><b></b></a>
+  <a class="tag" href="#central-pond" style="--x:57%;--y:50%"><span>Central Pond</span><i></i><b></b></a>
+  <a class="tag" href="#tennis-court" style="--x:72%;--y:33.5%"><span>Tennis Court</span><i></i><b></b></a>
+  <a class="tag" href="#golf-course" style="--x:75%;--y:28%"><span>Golf Course</span><i></i><b></b></a>
+  <a class="tag" href="#the-ring" style="--x:83%;--y:20%"><span>The Ring</span><i></i><b></b></a>
+  <div class="t" style="left:calc(var(--u)*150);bottom:calc(var(--u)*70);color:var(--paper)">
+    <p class="eyebrow">The island from the air &nbsp;·&nbsp; North Malé Atoll &nbsp;·&nbsp; 3°N 73°E</p>
+    <h2 class="display d2" style="margin-top:calc(var(--u)*16)">Eight places, <em>one walk</em></h2>
+  </div>
+</section>
+
+<section class="pg stage photo" id="port" data-title="Port" data-sec="Eight places" data-thumb="port-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.2258))"><span>08</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/port-a.jpg" class="zoomable" alt="Port"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port" class="act">Port</a></li><li><a href="#the-villas">The Villas</a></li><li><a href="#restaurant-bar">Restaurant / Bar</a></li><li><a href="#passages">Passages</a></li><li><a href="#central-pond">Central Pond</a></li><li><a href="#tennis-court">Tennis Court</a></li><li><a href="#golf-course">Golf Course</a></li><li><a href="#the-ring">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">01 &nbsp;·&nbsp; Port</p><h2 class="display">Where the island <em>begins</em></h2><p class="body">Tenders and yachts come alongside the arrival pavilion, a minute from the first villa.</p></div>
+</section>
+<section class="pg gal cream" id="port-life" data-title="Port — in pictures" data-sec="Eight places" data-thumb="port-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-ink.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.2581))"><span>09</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">01 &nbsp;·&nbsp; Port</p><h2 class="display d2">Arrive by sea, <em>stay by sea</em></h2></div>
+  <div class="side"><p class="lede">The marina is the island's front door: a timber quay, the arrival pavilion, and the walkways out to the villas.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/port-1.jpg" class="zoomable" alt="Guests arriving at the marina"></div><div class="meta cap"><span>Arrival</span><span style="opacity:.6">Midday</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/port-2.jpg" class="zoomable" alt="The tender tied up at the quay"></div><div class="meta cap"><span>Mooring</span><span style="opacity:.6">The quay</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/port-3.jpg" class="zoomable" alt="The marina in the late afternoon"></div><div class="meta cap"><span>The marina</span><span style="opacity:.6">Late afternoon</span></div></div>
+  </div>
+</section>
+<section class="pg stage photo" id="the-villas" data-title="The Villas" data-sec="Eight places" data-thumb="vil-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.2903))"><span>10</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/vil-a.jpg" class="zoomable" alt="The Villas"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port">Port</a></li><li><a href="#the-villas" class="act">The Villas</a></li><li><a href="#restaurant-bar">Restaurant / Bar</a></li><li><a href="#passages">Passages</a></li><li><a href="#central-pond">Central Pond</a></li><li><a href="#tennis-court">Tennis Court</a></li><li><a href="#golf-course">Golf Course</a></li><li><a href="#the-ring">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">02 &nbsp;·&nbsp; The Villas</p><h2 class="display">Beach villas <em>under the palms</em></h2><p class="body">Beach villas set back under the palms, each with a private pool and a direct line to the sand.</p></div>
+</section>
+<section class="pg gal " id="the-villas-life" data-title="The Villas — in pictures" data-sec="Eight places" data-thumb="vil-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.3226))"><span>11</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">02 &nbsp;·&nbsp; The Villas</p><h2 class="display d2">Glass, timber <em>and the lagoon</em></h2></div>
+  <div class="side"><p class="lede">Two floors of glass and timber, a private pool, and the lagoon at the door.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/vil-1.jpg" class="zoomable" alt="A villa reflected in the shallow water"></div><div class="meta cap"><span>Arrival</span><span style="opacity:.6">Late afternoon</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/vil-2.jpg" class="zoomable" alt="A beach villa with its pool on the sand"></div><div class="meta cap"><span>Beach Villa</span><span style="opacity:.6">Lagoon front</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/vil-3.jpg" class="zoomable" alt="Loungers on the sand in front of a villa"></div><div class="meta cap"><span>On the sand</span><span style="opacity:.6">Midday</span></div></div>
+  </div>
+</section>
+<section class="pg stage photo" id="restaurant-bar" data-title="Restaurant / Bar" data-sec="Eight places" data-thumb="rst-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.3548))"><span>12</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/rst-a.jpg" class="zoomable" alt="Restaurant / Bar"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port">Port</a></li><li><a href="#the-villas">The Villas</a></li><li><a href="#restaurant-bar" class="act">Restaurant / Bar</a></li><li><a href="#passages">Passages</a></li><li><a href="#central-pond">Central Pond</a></li><li><a href="#tennis-court">Tennis Court</a></li><li><a href="#golf-course">Golf Course</a></li><li><a href="#the-ring">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">03 &nbsp;·&nbsp; Restaurant / Bar</p><h2 class="display">Days are a matter <br>of <em>appetite</em></h2><p class="body">The round pavilion at the centre of the island: a kitchen, a long bar and a terrace that catches the afternoon.</p></div>
+</section>
+<section class="pg gal cream" id="restaurant-bar-life" data-title="Restaurant / Bar — in pictures" data-sec="Eight places" data-thumb="rst-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-ink.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.3871))"><span>13</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">03 &nbsp;·&nbsp; Restaurant / Bar</p><h2 class="display d2">Long lunches, <em>longer sunsets</em></h2></div>
+  <div class="side"><p class="lede">From the pavilion to the pool deck and the beach, service follows you to wherever the light is best.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/rst-1.jpg" class="zoomable" alt="The round restaurant pavilion and its pool"></div><div class="meta cap"><span>The pavilion</span><span style="opacity:.6">From above</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/rst-2.jpg" class="zoomable" alt="Drinks served by the pool at sunset"></div><div class="meta cap"><span>Pool lounge</span><span style="opacity:.6">Late afternoon</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/rst-3.jpg" class="zoomable" alt="Service on the beach at midday"></div><div class="meta cap"><span>On the beach</span><span style="opacity:.6">Midday</span></div></div>
+  </div>
+</section>
+<section class="pg stage photo" id="passages" data-title="Passages" data-sec="Eight places" data-thumb="pas-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.4194))"><span>14</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/pas-a.jpg" class="zoomable" alt="Passages"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port">Port</a></li><li><a href="#the-villas">The Villas</a></li><li><a href="#restaurant-bar">Restaurant / Bar</a></li><li><a href="#passages" class="act">Passages</a></li><li><a href="#central-pond">Central Pond</a></li><li><a href="#tennis-court">Tennis Court</a></li><li><a href="#golf-course">Golf Course</a></li><li><a href="#the-ring">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">04 &nbsp;·&nbsp; Passages</p><h2 class="display">No road, <em>no car</em></h2><p class="body">Timber walkways thread the whole island, from the port to the reef, with no road and no car on any of them.</p></div>
+</section>
+<section class="pg gal " id="passages-life" data-title="Passages — in pictures" data-sec="Eight places" data-thumb="pas-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.4516))"><span>15</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">04 &nbsp;·&nbsp; Passages</p><h2 class="display d2">Timber paths <em>to the water</em></h2></div>
+  <div class="side"><p class="lede">Timber paths link every home to the water. No cars. No reason for them.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/pas-1.jpg" class="zoomable" alt="A couple on the walkway to the ocean homes"></div><div class="meta cap"><span>The walkway</span><span style="opacity:.6">Midday</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/pas-2.jpg" class="zoomable" alt="Arriving at the walkway from the beach"></div><div class="meta cap"><span>Arrival</span><span style="opacity:.6">The walkway</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/pas-3.jpg" class="zoomable" alt="The walkway down to the sea"></div><div class="meta cap"><span>Down to the sea</span><span style="opacity:.6">Late afternoon</span></div></div>
+  </div>
+</section>
+<section class="pg stage photo" id="central-pond" data-title="Central Pond" data-sec="Eight places" data-thumb="pnd-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.4839))"><span>16</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/pnd-a.jpg" class="zoomable" alt="Central Pond"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port">Port</a></li><li><a href="#the-villas">The Villas</a></li><li><a href="#restaurant-bar">Restaurant / Bar</a></li><li><a href="#passages">Passages</a></li><li><a href="#central-pond" class="act">Central Pond</a></li><li><a href="#tennis-court">Tennis Court</a></li><li><a href="#golf-course">Golf Course</a></li><li><a href="#the-ring">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">05 &nbsp;·&nbsp; Central Pond</p><h2 class="display">The quiet <em>green heart</em></h2><p class="body">A freshwater pond in the middle of the planting, kept as the quiet green heart of the island.</p></div>
+</section>
+<section class="pg gal cream" id="central-pond-life" data-title="Central Pond — in pictures" data-sec="Eight places" data-thumb="pnd-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-ink.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.5161))"><span>17</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">05 &nbsp;·&nbsp; Central Pond</p><h2 class="display d2">Through <em>the grove</em></h2></div>
+  <div class="side"><p class="lede">Garden paths circle the water and lead back to the villas in the trees.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/pnd-1.jpg" class="zoomable" alt="The pond among the palms"></div><div class="meta cap"><span>The pond</span><span style="opacity:.6">Among the palms</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/pnd-2.jpg" class="zoomable" alt="A path along the pond garden"></div><div class="meta cap"><span>The garden path</span><span style="opacity:.6">Along the water</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/pnd-3.jpg" class="zoomable" alt="A couple walking back to their villa"></div><div class="meta cap"><span>Back to the villa</span><span style="opacity:.6">Late afternoon</span></div></div>
+  </div>
+</section>
+<section class="pg stage photo" id="tennis-court" data-title="Tennis Court" data-sec="Eight places" data-thumb="ten-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.5484))"><span>18</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/ten-a.jpg" class="zoomable" alt="Tennis Court"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port">Port</a></li><li><a href="#the-villas">The Villas</a></li><li><a href="#restaurant-bar">Restaurant / Bar</a></li><li><a href="#passages">Passages</a></li><li><a href="#central-pond">Central Pond</a></li><li><a href="#tennis-court" class="act">Tennis Court</a></li><li><a href="#golf-course">Golf Course</a></li><li><a href="#the-ring">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">06 &nbsp;·&nbsp; Tennis Court</p><h2 class="display">Courts in <br>the <em>palm grove</em></h2><p class="body">Two courts under the palms, laid out so the low sun falls across them rather than into your eyes.</p></div>
+</section>
+<section class="pg gal " id="tennis-court-life" data-title="Tennis Court — in pictures" data-sec="Eight places" data-thumb="ten-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.5806))"><span>19</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">06 &nbsp;·&nbsp; Tennis Court</p><h2 class="display d2">Before the game, <em>after the game</em></h2></div>
+  <div class="side"><p class="lede">A shaded path, a bench in the trees, and the courts a few steps from the villas.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/ten-1.jpg" class="zoomable" alt="The path to the tennis courts"></div><div class="meta cap"><span>The way in</span><span style="opacity:.6">Midday</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/ten-2.jpg" class="zoomable" alt="Players at the courts in the late afternoon"></div><div class="meta cap"><span>At the courts</span><span style="opacity:.6">Late afternoon</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/ten-3.jpg" class="zoomable" alt="Resting on the bench after the game"></div><div class="meta cap"><span>After the game</span><span style="opacity:.6">Midday</span></div></div>
+  </div>
+</section>
+<section class="pg stage photo" id="golf-course" data-title="Golf Course" data-sec="Eight places" data-thumb="glf-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.6129))"><span>20</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/glf-a.jpg" class="zoomable" alt="Golf Course"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port">Port</a></li><li><a href="#the-villas">The Villas</a></li><li><a href="#restaurant-bar">Restaurant / Bar</a></li><li><a href="#passages">Passages</a></li><li><a href="#central-pond">Central Pond</a></li><li><a href="#tennis-court">Tennis Court</a></li><li><a href="#golf-course" class="act">Golf Course</a></li><li><a href="#the-ring">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">07 &nbsp;·&nbsp; Golf Course</p><h2 class="display">Fairways between <br>the palms <em>and the sea</em></h2><p class="body">A short course cut into the centre of the island, ringed by palms, with the lagoon on both sides.</p></div>
+</section>
+<section class="pg gal cream" id="golf-course-life" data-title="Golf Course — in pictures" data-sec="Eight places" data-thumb="glf-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-ink.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.6452))"><span>21</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">07 &nbsp;·&nbsp; Golf Course</p><h2 class="display d2">The last <em>putt</em></h2></div>
+  <div class="side"><p class="lede">Morning rounds before the heat, a cart waiting in the shade, and the sea at the end of the fairway.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/glf-1.jpg" class="zoomable" alt="A player walking the course"></div><div class="meta cap"><span>On the course</span><span style="opacity:.6">Midday</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/glf-2.jpg" class="zoomable" alt="Two players talking between shots"></div><div class="meta cap"><span>Between shots</span><span style="opacity:.6">Late afternoon</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/glf-3.jpg" class="zoomable" alt="A player lining up a putt"></div><div class="meta cap"><span>The putt</span><span style="opacity:.6">Midday</span></div></div>
+  </div>
+</section>
+<section class="pg stage photo" id="the-ring" data-title="The Ring" data-sec="Eight places" data-thumb="rng-a"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.6774))"><span>22</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/rng-a.jpg" class="zoomable" alt="The Ring"></div>
+  <div class="veil v-club"></div>
+  <div class="head"><p class="eyebrow">The island &nbsp;·&nbsp; Eight places</p><p class="display d4" style="color:var(--paper)">One island, <em>one walk</em></p></div>
+  <ul class="places"><li><a href="#port">Port</a></li><li><a href="#the-villas">The Villas</a></li><li><a href="#restaurant-bar">Restaurant / Bar</a></li><li><a href="#passages">Passages</a></li><li><a href="#central-pond">Central Pond</a></li><li><a href="#tennis-court">Tennis Court</a></li><li><a href="#golf-course">Golf Course</a></li><li><a href="#the-ring" class="act">The Ring</a></li></ul>
+  <div class="foot"><p class="eyebrow" style="color:var(--paper)">08 &nbsp;·&nbsp; The Ring</p><h2 class="display">Ocean homes <br><em>over the lagoon</em></h2><p class="body">The ring of ocean homes, set over the lagoon on its own reef and joined to the island by a single walkway.</p></div>
+</section>
+<section class="pg gal " id="the-ring-life" data-title="The Ring — in pictures" data-sec="Eight places" data-thumb="rng-1"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.7097))"><span>23</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">08 &nbsp;·&nbsp; The Ring</p><h2 class="display d2">A deck over <em>the lagoon</em></h2></div>
+  <div class="side"><p class="lede">A deck over the lagoon, a pool at its edge, and the sunset straight ahead.</p><p style="margin-top:calc(var(--u)*22)"><a class="lnk" href="#aerial">Back to the island from the air</a></p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/rng-1.jpg" class="zoomable" alt="The ring of ocean homes from above"></div><div class="meta cap"><span>The Ring</span><span style="opacity:.6">From above</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/rng-2.jpg" class="zoomable" alt="The walkway out to the ring from the beach"></div><div class="meta cap"><span>From the beach</span><span style="opacity:.6">The walkway out</span></div></div>
+    <div class="card"><div class="ph arch"><img data-src="img/rng-3.jpg" class="zoomable" alt="The walkway to the ocean homes at sunset"></div><div class="meta cap"><span>The walkway</span><span style="opacity:.6">Sunset</span></div></div>
+  </div>
+</section>
+
+<!-- THE REEF -->
+<section class="pg reef photo" id="reef" data-title="The reef" data-sec="Residences" data-thumb="reef"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.7419))"><span>24</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/reef.jpg" class="zoomable" alt="Above and below the waterline: villas and the coral reef">
+    <video class="web-only" data-vsrc="video/reef-wide.mp4" muted loop playsinline preload="none"></video></div>
+  <div class="veil v-b"></div>
+  <div class="ttl"><h2 class="display">The address <br><em>is the reef.</em></h2></div>
+  <div class="lab"><p class="eyebrow" style="color:var(--paper)">Above the waterline</p><p class="eyebrow" style="color:var(--paper);margin-top:calc(var(--u)*10);opacity:.7">The house reef</p></div>
+  <div class="txt"><p class="body" style="opacity:1">Coral gardens begin where the gardens end. Step off the deck, swim out, and count fish until lunch.</p></div>
+</section>
+
+<!-- RESIDENCES -->
+<section class="pg res" id="residences" data-title="Residences" data-sec="Residences" data-thumb="green-round"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.7742))"><span>25</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><p class="eyebrow">The residences</p><h2 class="display d2" style="margin-top:calc(var(--u)*18)">Built from timber, <br>stone and <em>shade</em></h2></div>
+  <div class="side"><p class="lede">Low rooflines, deep verandas, walls that slide away. Every home is drawn for the wind that cools it.</p></div>
+  <div class="cards">
+    <div class="card"><div class="ph arch"><img data-src="img/green-round.jpg" class="zoomable" alt="A round garden villa under the palms"></div><div class="meta cap"><span>Garden Villa</span><span style="opacity:.6">In the grove</span></div><p>Behind the first dune, inside the green — the quiet address.</p></div>
+    <div class="card"><div class="ph arch"><img data-src="img/int-bed.jpg" class="zoomable" alt="Living space open to the beach"></div><div class="meta cap"><span>The Interiors</span><span style="opacity:.6">Living space</span></div><p>Walls slide away until the living room and the shoreline are the same room.</p></div>
+    <div class="card"><div class="ph arch"><img data-src="img/res-bed2.jpg" class="zoomable" alt="Bedroom with the sea breeze at midday"></div><div class="meta cap"><span>The Bedroom</span><span style="opacity:.6">Sleeping space</span></div><p>Curved glass, warm timber, and the sea as the first thing you see.</p></div>
+    <div class="card"><div class="ph arch"><img data-src="img/res-walk.jpg" class="zoomable" alt="A couple walking hand in hand between the villas"></div><div class="meta cap"><span>The Walkways</span><span style="opacity:.6">Island spine</span></div><p>Timber paths link every home to the water. No cars. No reason for them.</p></div>
+  </div>
+</section>
+
+<!-- LIFE HERE -->
+<section class="pg cream life" id="life" data-title="Life here" data-sec="Life Here" data-thumb="life-beach"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-ink.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.8065))"><span>26</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ttl"><span class="l1">Life</span><span class="l2">here</span></div>
+  <div class="mq"><div><span>Saltwater<img src="img/mark-ink.svg" alt=""></span><span>Trade winds<img src="img/mark-ink.svg" alt=""></span><span>Golden hour<img src="img/mark-ink.svg" alt=""></span><span>Barefoot<img src="img/mark-ink.svg" alt=""></span><span>House reef<img src="img/mark-ink.svg" alt=""></span><span>Slow mornings<img src="img/mark-ink.svg" alt=""></span><span>Saltwater<img src="img/mark-ink.svg" alt=""></span><span>Trade winds<img src="img/mark-ink.svg" alt=""></span><span>Golden hour<img src="img/mark-ink.svg" alt=""></span><span>Barefoot<img src="img/mark-ink.svg" alt=""></span><span>House reef<img src="img/mark-ink.svg" alt=""></span><span>Slow mornings<img src="img/mark-ink.svg" alt=""></span></div></div>
+  <div class="rail">
+    <figure style="width:calc(var(--u)*520)"><div class="ph"><img data-src="img/life-beach.jpg" class="zoomable" alt="The beach and the walkway to the ocean homes"></div><figcaption class="cap"><b>Beach</b>Out to the ocean homes</figcaption></figure>
+    <figure style="width:calc(var(--u)*260)"><div class="ph"><img data-src="img/life-way.jpg" class="zoomable" alt="On the beach on the way to the villa"></div><figcaption class="cap"><b>Arrival</b>The commute</figcaption></figure>
+    <figure style="width:calc(var(--u)*360)"><div class="ph"><img data-src="img/golf-life.jpg" class="zoomable" alt="Two players at the end of a round"></div><figcaption class="cap"><b>Golf</b>After the round</figcaption></figure>
+    <figure style="width:calc(var(--u)*260)"><div class="ph"><img data-src="img/life-palms.jpg" class="zoomable" alt="Palms over the beach path"></div><figcaption class="cap"><b>Garden</b>Through the grove</figcaption></figure>
+  </div>
+</section>
+
+<!-- THE ALLURE SIGNATURE -->
+<section class="pg sig" id="signature" data-title="The Allure signature" data-sec="Life Here" data-thumb="golf-flag"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.8387))"><span>27</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="head"><img src="img/mark-gold.svg" alt=""><p class="eyebrow">Allure &nbsp;·&nbsp; Ocean Views</p><h2 class="display d3" style="margin-top:calc(var(--u)*14)">The Allure <em>signature</em></h2><p class="lede">A sun over open water, and the life that goes on beneath it.</p></div>
+  <figure style="left:calc(var(--u)*150);top:calc(var(--u)*330);width:calc(var(--u)*300)"><div class="ph" style="height:calc(var(--u)*430)"><img data-src="img/golf-flag.jpg" class="zoomable" alt="The Allure flag on the green"></div><figcaption class="cap"><b>01</b>On the green</figcaption></figure>
+  <figure style="left:calc(var(--u)*490);top:calc(var(--u)*390);width:calc(var(--u)*280)"><div class="ph arch" style="height:calc(var(--u)*370)"><img data-src="img/boat.jpg" class="zoomable" alt="The tender at the marina"></div><figcaption class="cap"><b>02</b>At the marina</figcaption></figure>
+  <figure style="left:calc(var(--u)*810);top:calc(var(--u)*330);width:calc(var(--u)*300)"><div class="ph" style="height:calc(var(--u)*430)"><img data-src="img/sig-key.jpg" class="zoomable" alt="The key to the villa"></div><figcaption class="cap"><b>03</b>The key to the house</figcaption></figure>
+  <figure style="left:calc(var(--u)*1150);top:calc(var(--u)*390);width:calc(var(--u)*300)"><div class="ph arch" style="height:calc(var(--u)*370)"><img data-src="img/sig-tennis.jpg" class="zoomable" alt="Racquet and towel at the courts"></div><figcaption class="cap"><b>04</b>At the courts</figcaption></figure>
+</section>
+
+<!-- ENQUIRE -->
+<section class="pg enq photo" id="enquire" data-title="Enquire" data-sec="Enquire" data-thumb="enquire"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.8710))"><span>28</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/enquire.jpg" alt="A couple on the beach at sunset" style="object-position:50% 72%"></div>
+  <div class="veil v-c"></div><div class="veil v-b"></div>
+  <div class="ttl"><p class="eyebrow" style="color:var(--paper);margin-bottom:calc(var(--u)*26)">Private sales</p><span class="l1">The day ends.</span><span class="l2">The view doesn't.</span></div>
+  <div class="call">
+    <p class="eyebrow" style="color:var(--paper)">A Make It Visually case study</p>
+    <p class="lede">Selling a development before it is built? This is the work we do.</p>
+    <div style="margin-top:calc(var(--u)*30)"><a class="btn" href="mailto:mail@makeitvisually.com?subject=Allure%20case%20study%20%E2%80%94%20project%20enquiry">Talk to Make It Visually <i>→</i></a><a class="lnk2" href="#behind">How this was made</a></div>
+    <p class="cap" style="margin-top:calc(var(--u)*20);opacity:.7;letter-spacing:.12em;text-transform:none">mail@makeitvisually.com</p>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="pg fin" id="finale" data-title="Allure Ocean Views" data-sec="Allure Ocean Views" data-thumb="cover"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.9032))"><span>29</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <img class="halo" src="img/mark-paper.svg" alt="">
+  <div class="lock"><img class="wa" src="img/word-allure.webp" alt="Allure"><img class="wo" src="img/word-ocean.webp" alt="Ocean Views"></div>
+  <p class="co cap">North Malé Atoll &nbsp;·&nbsp; 3°N &nbsp;·&nbsp; 73°E</p>
+  <div class="tt"><a class="lnk" href="#cover">To the cover</a></div>
+</section>
+
+<!-- MIV · BEHIND THE WORK -->
+<section class="pg miv" id="behind" data-title="Behind the work" data-sec="Make It Visually" data-thumb="m"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.9355))"><span>30</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <a href="https://makeitvisually.com" target="_blank" rel="noopener"><img class="mlogo" src="img/miv-logo.svg" alt="Make It Visually"></a>
+  <div class="t" style="left:calc(var(--u)*120);top:calc(var(--u)*250);width:calc(var(--u)*760)">
+    <p class="lbl">Behind the work</p>
+    <h2 style="font-size:calc(var(--u)*96)">Allure is a <em>case study.</em></h2>
+    <p>Allure Ocean Views is a project of our own. We imagined the island and its identity, then produced everything a development of this kind takes to market.</p>
+    <p><strong>All of it was made in our studio.</strong> The renders, the film, the brand, the website and this brochure are the work of one team, at Make It Visually.</p>
+    <p>We are an architectural visualization and real estate branding studio in Portugal, working with developers and hospitality groups.</p>
+  </div>
+  <div class="t" style="left:calc(var(--u)*980);top:calc(var(--u)*250);width:calc(var(--u)*500)">
+    <p class="lbl">What we do</p>
+    <ol class="svc" style="columns:1">
+      <li><span>01</span>Interior Architecture Render</li><li><span>02</span>Exterior Architecture Render</li><li><span>03</span>Real Time Experience</li><li><span>04</span>3D Film Animation</li><li><span>05</span>Floor Plans Render</li><li><span>06</span>Project Brochure</li><li><span>07</span>Website Design</li><li><span>08</span>Property Branding</li><li><span>09</span>Social Media &amp; Marketing</li><li><span>10</span>Outdoor Advertising</li>
+    </ol>
+  </div>
+  <div class="mfoot"><span>Allure Ocean Views</span><span>A case study in architectural visualization, CGI film, brand and web by <b>Make It Visually</b> · Portugal</span><span>MMXXVI</span></div>
+</section>
+
+<!-- MIV · WHAT WE BUILT -->
+<section class="pg miv" id="built" data-title="What we built" data-sec="Make It Visually" data-thumb="m"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 0.9677))"><span>31</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <a href="https://makeitvisually.com" target="_blank" rel="noopener"><img class="mlogo" src="img/miv-logo.svg" alt="Make It Visually"></a>
+  <div class="t" style="left:calc(var(--u)*120);top:calc(var(--u)*170);width:calc(var(--u)*1300)"><p class="lbl">What we built for Allure</p><h2 style="font-size:calc(var(--u)*58)">One development. <em>Every piece it needs.</em></h2></div>
+  <div class="dlv">
+    <a href="#signature"><div class="ph"><img data-src="img/sig-welcome.jpg" alt=""></div><div class="k">7<small>applications</small></div><h4>Property branding</h4><p>The identity on flags, signage, stationery, the tender's hull, towels, slippers and racquet grips.</p></a>
+    <a href="#port"><div class="ph"><img data-src="img/rng-a.jpg" alt=""></div><div class="k">8<small>places</small></div><h4>Imagery</h4><p>Aerials, exteriors, interiors, lifestyle and details for every place on the island.</p></a>
+    <a href="#film"><div class="ph"><img data-src="img/film.jpg" alt=""></div><div class="k">60<small>seconds</small></div><h4>Brand film</h4><p>Arrival to dusk in one minute, cut to an original score.</p></a>
+    <a href="../" target="_blank" rel="noopener"><div class="ph"><img data-src="img/site.jpg" alt=""></div><div class="k">14<small>scenes</small></div><h4>Website</h4><p>A one-page scroll site with the film, the aerial of eight places and private enquiries.</p></a>
+    <a href="#cover"><div class="ph"><img data-src="img/brochure.jpg" alt=""></div><div class="k">32<small>pages</small></div><h4>Brochure</h4><p>This one: online and navigable, and as a linked PDF that fits in an email.</p></a>
+  </div>
+  <div class="t" style="left:calc(var(--u)*120);bottom:calc(var(--u)*60)"><a class="mbtn" href="mailto:mail@makeitvisually.com?subject=Project%20enquiry%20%E2%80%94%20Allure%20case%20study">Let's talk</a><a class="mhow" href="https://makeitvisually.com" target="_blank" rel="noopener">makeitvisually.com</a><span class="mhow" style="opacity:.7">mail@makeitvisually.com</span></div>
+</section>
+
+<!-- MIV · LOGO REVEAL -->
+<section class="pg reveal black nochrome" id="miv" data-title="Make It Visually" data-sec="Make It Visually" data-thumb="miv-end"><a class="emb" href="#contents" aria-label="Contents"><svg viewBox="0 0 200 200"><text><textPath href="#er" textLength="492" lengthAdjust="spacing">Allure &#160;·&#160; Ocean Views &#160;·&#160; Allure &#160;·&#160; Ocean Views &#160;·&#160;</textPath></text></svg><img src="img/mark-paper.svg" alt=""></a><span class="rul"></span><span class="rul-n" style="top:calc(calc(var(--u)*170) + (calc(var(--u)*590) * 1.0000))"><span>32</span></span><span class="rul-s">Page</span><a class="pe" href="mailto:mail@makeitvisually.com?subject=Allure%20Ocean%20Views%20%E2%80%94%20private%20enquiry"><span>Private<br>Enquiries</span><i>→</i></a><a class="htwm" href="#behind"><span>How this was made</span></a>
+  <div class="ph full"><img data-src="img/miv-end.jpg" alt="Make It Visually — makeitvisually.com">
+    <video class="web-only" data-vsrc="video/miv-reveal.mp4" muted playsinline preload="none" data-hold="13.55"></video></div>
+  <a class="site" href="https://makeitvisually.com" target="_blank" rel="noopener" aria-label="makeitvisually.com"></a>
+</section>
+
+</main>
+<div class="ctl web-only">
+  <span class="ctr" data-ctr>01 / 32</span>
+  <button type="button" data-index aria-label="Open the index"><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="5" height="5"/><rect x="9.5" y="1.5" width="5" height="5"/><rect x="1.5" y="9.5" width="5" height="5"/><rect x="9.5" y="9.5" width="5" height="5"/></svg><span>Index</span></button>
+  <button type="button" data-fs aria-label="Full screen"><svg viewBox="0 0 16 16"><path d="M1.5 5.5v-4h4M10.5 1.5h4v4M14.5 10.5v4h-4M5.5 14.5h-4v-4"/></svg></button>
+</div>
+<button class="navz prev web-only" type="button" data-prev aria-label="Previous page"><span><svg viewBox="0 0 20 20"><path d="M12.5 4 6.5 10l6 6"/></svg></span></button>
+<button class="navz next web-only" type="button" data-next aria-label="Next page"><span><svg viewBox="0 0 20 20"><path d="m7.5 4 6 6-6 6"/></svg></span></button>
+<div class="prog web-only"><i></i></div>
+<div class="hint web-only">← → keys · swipe · G for the index · F for full screen</div>
+<div class="ovl" id="index" role="dialog" aria-label="Index">
+  <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M2 2l12 12M14 2 2 14"/></svg></button>
+  <h2>Allure Ocean Views</h2><p class="sub">Index · 32 pages</p>
+  <div class="grid"></div>
+</div>
+<div class="modal" id="filmbox" role="dialog" aria-label="The film">
+  <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M2 2l12 12M14 2 2 14"/></svg></button>
+  <video data-vsrc="video/brand-film.mp4" controls playsinline preload="none" poster="img/film.jpg"></video>
+</div>
+<div class="modal" id="lightbox" role="dialog" aria-label="Image">
+  <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M2 2l12 12M14 2 2 14"/></svg></button>
+  <img alt=""><p class="lb-cap"></p>
+</div>
+<script>(function(){
+  var html=document.documentElement, body=document.body;
+  var pages=[].slice.call(document.querySelectorAll('.pg'));
+  var N=pages.length, cur=-1, mode;
+  var PRINT=/[?&]print\b/.test(location.search);
+
+  function pickMode(){
+    if(PRINT) return 'print';
+    var w=innerWidth,h=innerHeight;
+    return (w<820 && h>w) || w<560 ? 'flow' : 'deck';
+  }
+  function load(pg){
+    if(!pg||pg._ld) return; pg._ld=1;
+    pg.querySelectorAll('img[data-src]').forEach(function(im){
+      im.onload=function(){im.classList.add('ld')};
+      im.src=im.getAttribute('data-src');
+      if(im.complete) im.classList.add('ld');
+    });
+  }
+  function size(){
+    var m=pickMode();
+    if(m!==mode){ body.classList.remove('mode-'+mode); mode=m; body.classList.add('mode-'+mode); }
+    if(mode==='print'){ html.style.setProperty('--u','1px'); html.style.setProperty('--W','1600px'); html.style.setProperty('--H','900px'); return; }
+    if(mode==='flow'){ var u=Math.min(innerWidth/900,1); html.style.setProperty('--u',u+'px'); html.style.setProperty('--W','100%'); html.style.setProperty('--H','auto'); pages.forEach(load); return; }
+    var W=Math.min(innerWidth, innerHeight*16/9), H=W*9/16;
+    html.style.setProperty('--u',(W/1600)+'px'); html.style.setProperty('--W',W+'px'); html.style.setProperty('--H',H+'px');
+  }
+
+  /* ---------- videos ---------- */
+  function vids(pg,on){
+    pg.querySelectorAll('video[data-vsrc]').forEach(function(v){
+      if(on){
+        if(!v.src){ v.src=v.getAttribute('data-vsrc'); v.addEventListener('playing',function(){v.classList.add('playing')});
+          var hold=parseFloat(v.getAttribute('data-hold')); if(hold){ v.addEventListener('timeupdate',function(){ if(v.currentTime>=hold){ v.pause(); } }); } }
+        if(!v.loop){ try{v.currentTime=0}catch(e){} }
+        var p=v.play(); if(p&&p.catch) p.catch(function(){});
+      } else { try{v.pause()}catch(e){} }
+    });
+  }
+
+  /* ---------- navigation ---------- */
+  var ctr=document.querySelector('[data-ctr]'), sec=null, bar=document.querySelector('.prog i');
+  function go(i,noHash){
+    i=Math.max(0,Math.min(N-1,i));
+    if(mode!=='deck'){
+      var t=pages[i]; if(t) t.scrollIntoView({behavior:'smooth'}); return;
+    }
+    if(i===cur) return;
+    if(cur>=0){ pages[cur].classList.remove('on'); vids(pages[cur],false); }
+    cur=i; var pg=pages[i];
+    load(pg); load(pages[i+1]); load(pages[i-1]); load(pages[i+2]);
+    pg.classList.add('on'); vids(pg,true);
+    if(ctr) ctr.textContent=String(i+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
+    if(sec) sec.textContent=pg.getAttribute('data-sec')||'';
+    if(bar) bar.style.width=((i+1)/N*100)+'%';
+    if(!noHash) history.replaceState(null,'','#'+pg.id);
+    body.classList.toggle('on-miv',pg.classList.contains('miv'));
+    markIndex();
+  }
+  function idxOf(hash){ var id=(hash||'').replace('#',''); for(var k=0;k<N;k++) if(pages[k].id===id) return k; return -1; }
+
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');
+    if(a && mode!=='print'){ var k=idxOf(a.getAttribute('href')); if(k>=0){ e.preventDefault(); closeAll(); go(k); } }
+  });
+
+  var lock=0;
+  addEventListener('wheel',function(e){
+    if(mode!=='deck'||anyOpen()) return;
+    var now=Date.now(); if(now<lock) return;
+    if(Math.abs(e.deltaY)+Math.abs(e.deltaX)<18) return;
+    lock=now+850; go(cur+((e.deltaY||e.deltaX)>0?1:-1));
+  },{passive:true});
+  var tx=0,ty=0;
+  addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+  addEventListener('touchend',function(e){
+    if(mode!=='deck'||anyOpen()) return;
+    var dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)) go(cur+(dx<0?1:-1));
+    else if(Math.abs(dy)>60) go(cur+(dy<0?1:-1));
+  },{passive:true});
+  addEventListener('keydown',function(e){
+    if(e.key==='Escape'){ closeAll(); return; }
+    if(anyOpen()&&e.key!=='g'&&e.key!=='G') return;
+    if(mode!=='deck') return;
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '||k==='ArrowDown'){e.preventDefault();go(cur+1)}
+    else if(k==='ArrowLeft'||k==='PageUp'||k==='ArrowUp'){e.preventDefault();go(cur-1)}
+    else if(k==='Home'){go(0)} else if(k==='End'){go(N-1)}
+    else if(k==='g'||k==='G'){toggle(ovl)}
+    else if(k==='f'||k==='F'){fs()}
+  });
+  document.querySelectorAll('[data-prev]').forEach(function(b){b.onclick=function(){go(cur-1)}});
+  document.querySelectorAll('[data-next]').forEach(function(b){b.onclick=function(){go(cur+1)}});
+
+  /* ---------- fullscreen ---------- */
+  function fs(){ try{ var r; if(!document.fullscreenElement){ r=(html.requestFullscreen||html.webkitRequestFullscreen||function(){}).call(html); } else { r=document.exitFullscreen(); } if(r&&r.catch) r.catch(function(){}); }catch(e){} }
+  document.querySelectorAll('[data-fs]').forEach(function(b){b.onclick=fs});
+
+  /* ---------- overlays ---------- */
+  var ovl=document.getElementById('index'), film=document.getElementById('filmbox'), lb=document.getElementById('lightbox');
+  function anyOpen(){ return [ovl,film,lb].some(function(o){return o&&o.classList.contains('on')}); }
+  function toggle(o,on){ if(!o) return; on=(on===undefined)?!o.classList.contains('on'):on; o.classList.toggle('on',on); if(o===ovl&&on) buildIndex(); }
+  function closeAll(){ toggle(ovl,false); if(film.classList.contains('on')){ var v=film.querySelector('video'); v.pause(); } toggle(film,false); toggle(lb,false); }
+  document.querySelectorAll('[data-index]').forEach(function(b){b.onclick=function(){toggle(ovl)}});
+  document.querySelectorAll('.ovl .x,.modal .x').forEach(function(b){b.onclick=closeAll});
+  lb.addEventListener('click',function(e){ if(e.target===lb||e.target.tagName==='IMG') closeAll(); });
+
+  var built=0;
+  function buildIndex(){
+    if(built) return markIndex(); built=1;
+    var g=ovl.querySelector('.grid');
+    pages.forEach(function(pg,i){
+      var a=document.createElement('a'); a.href='#'+pg.id;
+      var th=pg.getAttribute('data-thumb');
+      var bg=th==='m' ? '<div class="th" style="display:grid;place-items:center;background:#1c1c1c"><img src="img/miv-logo.svg" alt="" style="width:46%"></div>' : '<div class="th" style="background-image:url(t/'+th+'.jpg)"></div>';
+      a.innerHTML=bg+'<div class="lb"><b>'+String(i+1).padStart(2,'0')+'</b><span>'+pg.getAttribute('data-title')+'</span></div>';
+      g.appendChild(a);
+    });
+    markIndex();
+  }
+  function markIndex(){ if(!built) return; var as=ovl.querySelectorAll('.grid a'); as.forEach(function(a,i){a.classList.toggle('cur',i===cur)}); }
+
+  /* film */
+  document.querySelectorAll('[data-film]').forEach(function(b){b.addEventListener('click',function(e){
+    e.preventDefault(); var v=film.querySelector('video'); if(!v.src) v.src=v.getAttribute('data-vsrc');
+    toggle(film,true); v.currentTime=0; v.muted=false; var p=v.play(); if(p&&p.catch)p.catch(function(){});
+  })});
+
+  /* lightbox */
+  document.addEventListener('click',function(e){
+    var im=e.target.closest('.zoomable'); if(!im||mode==='print') return;
+    if(e.target.closest('a')) return;
+    var big=lb.querySelector('img'); big.src=im.currentSrc||im.src; big.alt=im.alt;
+    lb.querySelector('.lb-cap').textContent=im.alt||''; toggle(lb,true);
+  });
+
+  /* ---------- start ---------- */
+  size();
+  if(mode==='print'){ pages.forEach(load); }
+  addEventListener('resize',function(){ var before=mode; size(); if(before!=='deck'&&mode==='deck'){ var k=cur<0?0:cur; cur=-1; go(k,true);} });
+  if(mode==='deck'){ var start=idxOf(location.hash); go(start<0?0:start,true); }
+  else if(mode==='flow'){ var s=idxOf(location.hash); if(s>0) setTimeout(function(){pages[s].scrollIntoView()},300); }
+  addEventListener('hashchange',function(){ var k=idxOf(location.hash); if(k>=0) go(k,true); });
+  var hint=document.querySelector('.hint'); if(hint) setTimeout(function(){hint.classList.add('off')},4500);
+  window.__ready=true;
+})();
+</script>
+</body>
+</html>
