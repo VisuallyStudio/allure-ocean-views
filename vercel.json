@@ -1,7 +1,22 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "functions": {
+    "api/contact.js": {
+      "includeFiles": "brochure/allure-ocean-views-brochure.pdf",
+      "maxDuration": 30
+    }
+  },
   "headers": [
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
     {
       "source": "/(img|video|fonts)/(.*)",
       "headers": [

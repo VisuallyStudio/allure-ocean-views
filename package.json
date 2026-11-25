@@ -1,0 +1,11 @@
+{
+  "name": "allure-ocean-views",
+  "private": true,
+  "description": "Allure Ocean Views static site, plus the /api/contact serverless function.",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "nodemailer": "^10.6.1"
+  }
+}

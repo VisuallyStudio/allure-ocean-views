@@ -1,0 +1,4 @@
+docs/
+.playwright-mcp/
+.env*
+!.env.example
