@@ -115,8 +115,11 @@ module.exports = async function (req, res) {
   var miv = emails.isMiv(mode);
   if (miv || String(env.SEND_BROCHURE || 'true').trim().toLowerCase() !== 'false') {
     var visitorMail = emails.visitor(data, env);
+    // the sender's display name matches the brand in the email: a "Make It Visually" email
+    // sent as "Allure Ocean Views" reads as a mismatch to spam filters
+    var fromAddr = (String(from).match(/<([^>]+)>/) || [null, String(from)])[1].trim();
     var mail = {
-      from: from,
+      from: miv ? { name: 'Make It Visually', address: fromAddr } : from,
       to: { name: name, address: email },
       replyTo: to,
       subject: visitorMail.subject,
