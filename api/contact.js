@@ -5,6 +5,7 @@
 
 var path = require('path');
 var nodemailer = require('nodemailer');
+var emails = require('./_lib/emails');
 
 // bundled with the function through "includeFiles" in vercel.json
 var BROCHURE_PDF = path.join(process.cwd(), 'brochure', 'allure-ocean-views-brochure.pdf');
@@ -27,15 +28,6 @@ function str(v, max) {
 // values that end up in mail headers must not carry line breaks
 function oneLine(v) {
   return v.replace(/[\r\n]+/g, ' ').trim();
-}
-
-function confirmationText(name, mode) {
-  var first = mode === 'brochure'
-    ? 'Thank you for your interest in Allure Ocean Views. The brochure is attached to this email as a PDF.'
-    : 'Thank you for your enquiry. We have received it and will reply shortly with references, scope and timings.\n\nIn the meantime, the Allure Ocean Views brochure is attached to this email as a PDF.';
-  return 'Hello ' + name + ',\n\n' + first
-    + '\n\nIf you have any questions, simply reply to this email.'
-    + '\n\nBest regards,\nMake It Visually\nmail@makeitvisually.com\nhttps://makeitvisually.com\n';
 }
 
 function send(res, status, payload) {
@@ -90,10 +82,7 @@ module.exports = async function (req, res) {
   }
   var port = parseInt(env.SMTP_PORT, 10) || 465;
 
-  var text = 'Name: ' + name + '\nEmail: ' + email
-    + '\nCompany: ' + (company || '—')
-    + (mode === 'brochure' ? '\n\nRequested: the Allure Ocean Views brochure' : '\n\nProject:\n' + message)
-    + '\n\n— sent from the Allure Ocean Views showcase';
+  var data = { mode: mode, name: name, email: email, company: company, message: message, date: new Date() };
 
   var from = env.MAIL_FROM || user;
   var to = env.MAIL_TO || 'mail@makeitvisually.com';
@@ -105,34 +94,44 @@ module.exports = async function (req, res) {
   });
 
   // 1. notification to the studio; this one decides success
+  var adminMail = emails.admin(data, SUBJECTS[mode], env);
   try {
     await transporter.sendMail({
       from: from,
       to: to,
       replyTo: { name: name, address: email },
-      subject: SUBJECTS[mode],
-      text: text
+      subject: adminMail.subject,
+      text: adminMail.text,
+      html: adminMail.html
     });
   } catch (err) {
     console.error('[contact] send failed:', err && err.message ? err.message : err);
     return send(res, 502, { ok: false });
   }
 
-  // 2. confirmation to the visitor with the brochure attached; a failure here is logged only
-  if (String(env.SEND_BROCHURE || 'true').trim().toLowerCase() !== 'false') {
+  // 2. confirmation to the visitor; a failure here is logged only.
+  // "Let's talk" (Make It Visually) gets the studio's own email with no attachment;
+  // the other modes get the Allure email with the brochure PDF, unless SEND_BROCHURE=false.
+  var miv = emails.isMiv(mode);
+  if (miv || String(env.SEND_BROCHURE || 'true').trim().toLowerCase() !== 'false') {
+    var visitorMail = emails.visitor(data, env);
+    var mail = {
+      from: from,
+      to: { name: name, address: email },
+      replyTo: to,
+      subject: visitorMail.subject,
+      text: visitorMail.text,
+      html: visitorMail.html
+    };
+    if (!miv) {
+      mail.attachments = [{
+        filename: 'allure-ocean-views-brochure.pdf',
+        path: BROCHURE_PDF,
+        contentType: 'application/pdf'
+      }];
+    }
     try {
-      await transporter.sendMail({
-        from: from,
-        to: { name: name, address: email },
-        replyTo: to,
-        subject: 'Your Allure Ocean Views brochure',
-        text: confirmationText(name, mode),
-        attachments: [{
-          filename: 'allure-ocean-views-brochure.pdf',
-          path: BROCHURE_PDF,
-          contentType: 'application/pdf'
-        }]
-      });
+      await transporter.sendMail(mail);
     } catch (err) {
       console.error('[contact] visitor confirmation failed:', err && err.message ? err.message : err);
     }
